@@ -5,9 +5,9 @@ VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaboratorioPrimeUI", "LaboratorioPrimeUI\LaboratorioPrimeUI.csproj", "{0D23452F-D222-4924-82B4-DF173BD9FF5E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JoalheriaPrimeDAL", "JoalheriaPrimeDAL\JoalheriaPrimeDAL.csproj", "{74849150-AFEE-4842-9A3E-081DE9DA6B1C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaboratorioPrimeDAL", "JoalheriaPrimeDAL\LaboratorioPrimeDAL.csproj", "{74849150-AFEE-4842-9A3E-081DE9DA6B1C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JoalheriaPrimeBLL", "JoalheriaPrimeBLL\JoalheriaPrimeBLL.csproj", "{DA4BABC0-434A-4CA2-AD97-C4432EFE160A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaboratorioPrimeBLL", "JoalheriaPrimeBLL\LaboratorioPrimeBLL.csproj", "{DA4BABC0-434A-4CA2-AD97-C4432EFE160A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
