@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace LaboratorioPrimeUI
 {
+
     public partial class frmPrincipal : Form
     {
         private int childFormNumber = 0;
