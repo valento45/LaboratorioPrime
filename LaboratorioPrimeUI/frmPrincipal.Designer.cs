@@ -30,10 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
+            this.toolStripMenuArquivo = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.toolStripMenuArquivo = new System.Windows.Forms.ToolStripMenuItem();
+            this.usuariosPermissoesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -47,6 +48,14 @@
             this.menuStrip.Size = new System.Drawing.Size(874, 24);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "MenuStrip";
+            // 
+            // toolStripMenuArquivo
+            // 
+            this.toolStripMenuArquivo.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.usuariosPermissoesToolStripMenuItem});
+            this.toolStripMenuArquivo.Name = "toolStripMenuArquivo";
+            this.toolStripMenuArquivo.Size = new System.Drawing.Size(61, 20);
+            this.toolStripMenuArquivo.Text = "Arquivo";
             // 
             // statusStrip
             // 
@@ -64,11 +73,11 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
             // 
-            // toolStripMenuArquivo
+            // usuariosPermissoesToolStripMenuItem
             // 
-            this.toolStripMenuArquivo.Name = "toolStripMenuArquivo";
-            this.toolStripMenuArquivo.Size = new System.Drawing.Size(61, 20);
-            this.toolStripMenuArquivo.Text = "Arquivo";
+            this.usuariosPermissoesToolStripMenuItem.Name = "usuariosPermissoesToolStripMenuItem";
+            this.usuariosPermissoesToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.usuariosPermissoesToolStripMenuItem.Text = "Usuarios / Permissoes";
             // 
             // frmPrincipal
             // 
@@ -99,6 +108,7 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel;
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuArquivo;
+        private System.Windows.Forms.ToolStripMenuItem usuariosPermissoesToolStripMenuItem;
     }
 }
 
