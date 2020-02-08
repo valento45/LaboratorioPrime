@@ -11,7 +11,7 @@ using JoalheriaPrimeDAL;
 namespace JoalheriaPrimeBLL
 {
     public class Usuario
-    {
+    {        
         public int UserID { get; set; }
         public string Login { get; set; }
         public string Senha { get; set; }
@@ -291,6 +291,9 @@ namespace JoalheriaPrimeBLL
             #endregion
         }
 
+        public void Insert_User(Usuario usuario)
+        {
 
+        }
     }
 }

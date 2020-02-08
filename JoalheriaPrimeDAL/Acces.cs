@@ -13,6 +13,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace JoalheriaPrimeDAL
 {
+    
     public class Acces
     {
 
