@@ -58,12 +58,35 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.tabPermissao = new System.Windows.Forms.TabPage();
+            this.tabConsultar = new System.Windows.Forms.TabPage();
+            this.pnlConsultar = new System.Windows.Forms.Panel();
+            this.dgvConsultarUsuario = new System.Windows.Forms.DataGridView();
+            this.groupOpFiltros = new System.Windows.Forms.GroupBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtFiltro = new System.Windows.Forms.TextBox();
+            this.btnPesquisar = new System.Windows.Forms.Button();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabRegistro.SuspendLayout();
             this.groupInfObs.SuspendLayout();
             this.groupInfUsuario.SuspendLayout();
             this.groudInfPessoal.SuspendLayout();
+            this.tabConsultar.SuspendLayout();
+            this.pnlConsultar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvConsultarUsuario)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -72,12 +95,13 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabRegistro);
-            this.tabControl1.Controls.Add(this.tabPermissao);
+            this.tabControl1.Controls.Add(this.tabConsultar);
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(842, 447);
+            this.tabControl1.Size = new System.Drawing.Size(842, 490);
             this.tabControl1.TabIndex = 0;
+            this.tabControl1.Tag = "0";
             // 
             // tabRegistro
             // 
@@ -91,7 +115,7 @@
             this.tabRegistro.Location = new System.Drawing.Point(4, 22);
             this.tabRegistro.Name = "tabRegistro";
             this.tabRegistro.Padding = new System.Windows.Forms.Padding(3);
-            this.tabRegistro.Size = new System.Drawing.Size(834, 421);
+            this.tabRegistro.Size = new System.Drawing.Size(834, 464);
             this.tabRegistro.TabIndex = 0;
             this.tabRegistro.Text = "Registro";
             this.tabRegistro.UseVisualStyleBackColor = true;
@@ -103,7 +127,7 @@
             this.btnNovo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNovo.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNovo.ForeColor = System.Drawing.Color.White;
-            this.btnNovo.Location = new System.Drawing.Point(111, 375);
+            this.btnNovo.Location = new System.Drawing.Point(168, 430);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(107, 28);
             this.btnNovo.TabIndex = 6;
@@ -117,7 +141,7 @@
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(481, 375);
+            this.btnCancelar.Location = new System.Drawing.Point(538, 430);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(107, 28);
             this.btnCancelar.TabIndex = 5;
@@ -132,7 +156,7 @@
             this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnImprimir.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnImprimir.ForeColor = System.Drawing.Color.White;
-            this.btnImprimir.Location = new System.Drawing.Point(365, 375);
+            this.btnImprimir.Location = new System.Drawing.Point(422, 430);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(107, 28);
             this.btnImprimir.TabIndex = 4;
@@ -146,7 +170,7 @@
             this.btnAcao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAcao.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAcao.ForeColor = System.Drawing.Color.White;
-            this.btnAcao.Location = new System.Drawing.Point(246, 375);
+            this.btnAcao.Location = new System.Drawing.Point(303, 430);
             this.btnAcao.Name = "btnAcao";
             this.btnAcao.Size = new System.Drawing.Size(107, 28);
             this.btnAcao.TabIndex = 3;
@@ -156,20 +180,23 @@
             // 
             // groupInfObs
             // 
+            this.groupInfObs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupInfObs.Controls.Add(this.txtObservacao);
             this.groupInfObs.Location = new System.Drawing.Point(6, 269);
             this.groupInfObs.Name = "groupInfObs";
-            this.groupInfObs.Size = new System.Drawing.Size(822, 100);
+            this.groupInfObs.Size = new System.Drawing.Size(822, 139);
             this.groupInfObs.TabIndex = 2;
             this.groupInfObs.TabStop = false;
             this.groupInfObs.Text = "Observacões";
             // 
             // txtObservacao
             // 
-            this.txtObservacao.Location = new System.Drawing.Point(105, 19);
+            this.txtObservacao.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtObservacao.Location = new System.Drawing.Point(76, 19);
             this.txtObservacao.Multiline = true;
             this.txtObservacao.Name = "txtObservacao";
-            this.txtObservacao.Size = new System.Drawing.Size(613, 75);
+            this.txtObservacao.Size = new System.Drawing.Size(642, 93);
             this.txtObservacao.TabIndex = 2;
             // 
             // groupInfUsuario
@@ -197,6 +224,7 @@
             // 
             // chkAtivo
             // 
+            this.chkAtivo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.chkAtivo.AutoSize = true;
             this.chkAtivo.Location = new System.Drawing.Point(529, 93);
             this.chkAtivo.Name = "chkAtivo";
@@ -206,6 +234,7 @@
             // 
             // label7
             // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(492, 92);
             this.label7.Name = "label7";
@@ -215,6 +244,7 @@
             // 
             // txtPermissao
             // 
+            this.txtPermissao.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtPermissao.Location = new System.Drawing.Point(529, 60);
             this.txtPermissao.Name = "txtPermissao";
             this.txtPermissao.Size = new System.Drawing.Size(189, 20);
@@ -222,6 +252,7 @@
             // 
             // label6
             // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(468, 63);
             this.label6.Name = "label6";
@@ -231,6 +262,7 @@
             // 
             // txtConfirmaSenha
             // 
+            this.txtConfirmaSenha.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtConfirmaSenha.Location = new System.Drawing.Point(213, 84);
             this.txtConfirmaSenha.Name = "txtConfirmaSenha";
             this.txtConfirmaSenha.PasswordChar = 'O';
@@ -239,6 +271,7 @@
             // 
             // label10
             // 
+            this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(124, 87);
             this.label10.Name = "label10";
@@ -248,6 +281,7 @@
             // 
             // txtSenha
             // 
+            this.txtSenha.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtSenha.Location = new System.Drawing.Point(213, 57);
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.PasswordChar = 'O';
@@ -256,6 +290,7 @@
             // 
             // label9
             // 
+            this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(172, 60);
             this.label9.Name = "label9";
@@ -265,6 +300,7 @@
             // 
             // txtModulos
             // 
+            this.txtModulos.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtModulos.Location = new System.Drawing.Point(529, 34);
             this.txtModulos.Name = "txtModulos";
             this.txtModulos.Size = new System.Drawing.Size(189, 20);
@@ -272,6 +308,7 @@
             // 
             // label5
             // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(480, 37);
             this.label5.Name = "label5";
@@ -281,6 +318,7 @@
             // 
             // txtLogin
             // 
+            this.txtLogin.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtLogin.Location = new System.Drawing.Point(213, 31);
             this.txtLogin.Name = "txtLogin";
             this.txtLogin.Size = new System.Drawing.Size(123, 20);
@@ -288,6 +326,7 @@
             // 
             // label8
             // 
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(177, 34);
             this.label8.Name = "label8";
@@ -386,22 +425,232 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nome";
             // 
-            // tabPermissao
+            // tabConsultar
             // 
-            this.tabPermissao.Location = new System.Drawing.Point(4, 22);
-            this.tabPermissao.Name = "tabPermissao";
-            this.tabPermissao.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPermissao.Size = new System.Drawing.Size(834, 421);
-            this.tabPermissao.TabIndex = 1;
-            this.tabPermissao.Text = "Permissoes";
-            this.tabPermissao.UseVisualStyleBackColor = true;
+            this.tabConsultar.Controls.Add(this.pnlConsultar);
+            this.tabConsultar.Location = new System.Drawing.Point(4, 22);
+            this.tabConsultar.Name = "tabConsultar";
+            this.tabConsultar.Padding = new System.Windows.Forms.Padding(3);
+            this.tabConsultar.Size = new System.Drawing.Size(834, 464);
+            this.tabConsultar.TabIndex = 1;
+            this.tabConsultar.Tag = "1";
+            this.tabConsultar.Text = "Consultar";
+            this.tabConsultar.UseVisualStyleBackColor = true;
+            // 
+            // pnlConsultar
+            // 
+            this.pnlConsultar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlConsultar.Controls.Add(this.button4);
+            this.pnlConsultar.Controls.Add(this.button3);
+            this.pnlConsultar.Controls.Add(this.button1);
+            this.pnlConsultar.Controls.Add(this.button2);
+            this.pnlConsultar.Controls.Add(this.btnPesquisar);
+            this.pnlConsultar.Controls.Add(this.txtFiltro);
+            this.pnlConsultar.Controls.Add(this.label11);
+            this.pnlConsultar.Controls.Add(this.groupOpFiltros);
+            this.pnlConsultar.Controls.Add(this.dgvConsultarUsuario);
+            this.pnlConsultar.Location = new System.Drawing.Point(6, 6);
+            this.pnlConsultar.Name = "pnlConsultar";
+            this.pnlConsultar.Size = new System.Drawing.Size(822, 452);
+            this.pnlConsultar.TabIndex = 0;
+            // 
+            // dgvConsultarUsuario
+            // 
+            this.dgvConsultarUsuario.AllowUserToAddRows = false;
+            this.dgvConsultarUsuario.AllowUserToDeleteRows = false;
+            this.dgvConsultarUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvConsultarUsuario.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dgvConsultarUsuario.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgvConsultarUsuario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvConsultarUsuario.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5,
+            this.Column6,
+            this.Column7,
+            this.Column8,
+            this.Column9,
+            this.Column10});
+            this.dgvConsultarUsuario.GridColor = System.Drawing.SystemColors.Control;
+            this.dgvConsultarUsuario.Location = new System.Drawing.Point(3, 150);
+            this.dgvConsultarUsuario.Name = "dgvConsultarUsuario";
+            this.dgvConsultarUsuario.Size = new System.Drawing.Size(816, 256);
+            this.dgvConsultarUsuario.TabIndex = 0;
+            // 
+            // groupOpFiltros
+            // 
+            this.groupOpFiltros.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupOpFiltros.Location = new System.Drawing.Point(615, 3);
+            this.groupOpFiltros.Name = "groupOpFiltros";
+            this.groupOpFiltros.Size = new System.Drawing.Size(200, 141);
+            this.groupOpFiltros.TabIndex = 0;
+            this.groupOpFiltros.TabStop = false;
+            this.groupOpFiltros.Text = "Filtrar Por";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(5, 127);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(29, 13);
+            this.label11.TabIndex = 1;
+            this.label11.Text = "Filtro";
+            // 
+            // txtFiltro
+            // 
+            this.txtFiltro.Location = new System.Drawing.Point(40, 124);
+            this.txtFiltro.Name = "txtFiltro";
+            this.txtFiltro.Size = new System.Drawing.Size(316, 20);
+            this.txtFiltro.TabIndex = 2;
+            // 
+            // btnPesquisar
+            // 
+            this.btnPesquisar.BackColor = System.Drawing.SystemColors.Control;
+            this.btnPesquisar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPesquisar.Location = new System.Drawing.Point(362, 121);
+            this.btnPesquisar.Name = "btnPesquisar";
+            this.btnPesquisar.Size = new System.Drawing.Size(75, 23);
+            this.btnPesquisar.TabIndex = 3;
+            this.btnPesquisar.Text = "Pesquisar";
+            this.btnPesquisar.UseVisualStyleBackColor = false;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Column1";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 73;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Column2";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 73;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Column3";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 73;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Column4";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 73;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Column5";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 73;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Column6";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Width = 73;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Column7";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Width = 73;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Column8";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            this.Column8.Width = 73;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Column9";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            this.Column9.Width = 73;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "Column10";
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            this.Column10.Width = 79;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.button1.BackColor = System.Drawing.Color.Teal;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(556, 412);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(107, 28);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Cancelar";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            this.button2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.button2.BackColor = System.Drawing.Color.Teal;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(330, 412);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(107, 28);
+            this.button2.TabIndex = 6;
+            this.button2.Text = "Imprimir";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // button3
+            // 
+            this.button3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.button3.BackColor = System.Drawing.Color.Teal;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.Location = new System.Drawing.Point(443, 412);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(107, 28);
+            this.button3.TabIndex = 8;
+            this.button3.Text = "Excluir";
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // button4
+            // 
+            this.button4.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.button4.BackColor = System.Drawing.Color.Teal;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.ForeColor = System.Drawing.Color.White;
+            this.button4.Location = new System.Drawing.Point(175, 412);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(149, 28);
+            this.button4.TabIndex = 9;
+            this.button4.Text = "Exportar / Importar";
+            this.button4.UseVisualStyleBackColor = false;
             // 
             // frmUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Teal;
-            this.ClientSize = new System.Drawing.Size(866, 471);
+            this.ClientSize = new System.Drawing.Size(866, 514);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmUsuario";
@@ -416,6 +665,10 @@
             this.groupInfUsuario.PerformLayout();
             this.groudInfPessoal.ResumeLayout(false);
             this.groudInfPessoal.PerformLayout();
+            this.tabConsultar.ResumeLayout(false);
+            this.pnlConsultar.ResumeLayout(false);
+            this.pnlConsultar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvConsultarUsuario)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -425,7 +678,7 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabRegistro;
         private System.Windows.Forms.GroupBox groudInfPessoal;
-        private System.Windows.Forms.TabPage tabPermissao;
+        private System.Windows.Forms.TabPage tabConsultar;
         private System.Windows.Forms.GroupBox groupInfUsuario;
         private System.Windows.Forms.TextBox txtModulos;
         private System.Windows.Forms.Label label5;
@@ -453,5 +706,25 @@
         private System.Windows.Forms.Button btnAcao;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnNovo;
+        private System.Windows.Forms.Panel pnlConsultar;
+        private System.Windows.Forms.DataGridView dgvConsultarUsuario;
+        private System.Windows.Forms.GroupBox groupOpFiltros;
+        private System.Windows.Forms.Button btnPesquisar;
+        private System.Windows.Forms.TextBox txtFiltro;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button3;
     }
 }
