@@ -59,21 +59,21 @@ namespace JoalheriaPrimeDAL
                 catch(SqlException ex)
                 {
                     //NetworkLog.Insert(ex, pCommand.CommandText);
-                    //if (ex.Message.Contains("Exception while writing to stream") || ex.Message.Contains("Exception while reading from stream"))
-                    //{
-                    //    if (!retry)
-                    //        retry = true;
-                    //    else
-                    //    {
-                    //        MessageBox.Show("Atenção! Houve perda de conexão com o servidor ou ele demorou muito a responder." + (ex.InnerException != null ? "\r\n\r\nDetalhamento do erro: " + ex.InnerException.Message : "") + "\r\n\r\nÉ possível que as últimas alterações não foram salvas, por favor verifique.", "1) " + ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    //        retry = false;
-                    //    }
-                    //    //Application.Exit(new CancelEventArgs(true));
-                    //}
-                    //else if (ex.Data["Code"]?.ToString().CompareTo("08P01") == 0)
-                    //    MessageBox.Show("Atenção! Erro ao executar o comando:\r\n\r\n" + pCommand.CommandText + "", "Violação de protocolo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    //else
-                    //    TrataExcecao(ex, (NpgsqlCommand)pCommand);
+                    if (ex.Message.Contains("Exception while writing to stream") || ex.Message.Contains("Exception while reading from stream"))
+                    {
+                        if (!retry)
+                            retry = true;
+                        else
+                        {
+                            MessageBox.Show("Atenção! Houve perda de conexão com o servidor ou ele demorou muito a responder." + (ex.InnerException != null ? "\r\n\r\nDetalhamento do erro: " + ex.InnerException.Message : "") + "\r\n\r\nÉ possível que as últimas alterações não foram salvas, por favor verifique.", "1) " + ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            retry = false;
+                        }
+                        //Application.Exit(new CancelEventArgs(true));
+                    }
+                    else if (ex.Data["Code"]?.ToString().CompareTo("08P01") == 0)
+                        MessageBox.Show("Atenção! Erro ao executar o comando:\r\n\r\n" + pCommand.CommandText + "", "Violação de protocolo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    else
+                        TrataExcecao(ex, (SqlCommand)pCommand);
                 }
                 finally
                 {
@@ -82,27 +82,26 @@ namespace JoalheriaPrimeDAL
                 }
             } while (retry);
         }
-
-
+        
                           
         public static IDbConnection GetConnection()
         {
-            string connectionString = "DataSource=;Initial Catalog=bd_lab_prime;Integrated Security=true;";
+            string connectionString = "Data Source=MX15733\\DEVELOPER;Initial Catalog=bd_lab_prime;Integrated Security=true;";
             SqlConnection conn = new SqlConnection(connectionString);
             return conn;
         }
 
        public static T ExecuteScalar<T>(string command)
         {
-            var cmd = new SqlCommand(command).ToString();
-            var obj = ExecuteScalar(cmd);
+            var cmd = new SqlCommand(command);
+            var obj = ExecuteScalar(cmd.ToString());
             return (T)obj;
         }
 
         public static object ExecuteScalar(string command)
         {
-            var cmd = new SqlCommand(command).ToString();
-            var obj = ExecuteScalar(cmd);
+            var cmd = new SqlCommand(command);
+            var obj = ExecuteScalar(cmd.ToString());
 
             return obj;
         }
@@ -255,7 +254,7 @@ namespace JoalheriaPrimeDAL
                     foreach(SqlParameter parmt in pCommand.Parameters)
                         try
                         {
-                            if (parmt.Value == null || parmt.Value.ToString() == char.MinValue.ToString()) ;
+                            if (parmt.Value == null || parmt.Value.ToString() == char.MinValue.ToString());
                             parmt.Value = DBNull.Value;
                         }
                         catch { };
@@ -293,7 +292,6 @@ namespace JoalheriaPrimeDAL
                         MessageBox.Show("Atenção! Erro ao executar o comando:\r\n\r\n" + pCommand.CommandText + "", "Violação de protocolo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     else
                         TrataExcecao(ex, (SqlCommand)pCommand);
-
                 }
 
                 finally
@@ -307,6 +305,5 @@ namespace JoalheriaPrimeDAL
             } while (retry);
             return ds;
         }
-
     }
 }

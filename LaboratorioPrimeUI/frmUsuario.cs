@@ -25,24 +25,25 @@ namespace LaboratorioPrimeUI
 
         }
 
-        public void Gravar()
-        {
-            var usuario = new Usuario();
-            usuario.Nome = txtNome.Text;
-            usuario.Login = txtLogin.Text;
-            usuario.Senha = txtSenha.Text;
-            usuario.Funcao = txtFuncao.Text;
-            usuario.Documento = txtRg.Text;
-            usuario.CPF = txtCpf.Text;
-            usuario.Modulos = txtModulos.Text;
-            usuario.Observacoes = txtObservacao.Text;
-            usuario.userPermissao =Convert.ToChar(txtPermissao.Text);
-            if (chkAtivo.Checked)
-                usuario.Ativo = true;
-            else
-                usuario.Ativo = false;
+        public bool Gravar()
+        {          
+                var usuario = new Usuario();
+                usuario.Nome = txtNome.Text;
+                usuario.Login = txtLogin.Text;
+                usuario.Senha = txtSenha.Text;
+                usuario.Funcao = txtFuncao.Text;
+                usuario.Documento = txtRg.Text;
+                usuario.CPF = txtCpf.Text;
+                usuario.Modulos = txtModulos.Text;
+                usuario.Observacoes = txtObservacao.Text;
+                if (chkAtivo.Checked)
+                    usuario.Ativo = true;
+                else
+                    usuario.Ativo = false;
 
-            
+                usuario.Insert_User(usuario);
+                MessageBox.Show("Usuario registrado com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return true;           
         }
 
         private bool ValidarCampos()
@@ -55,8 +56,15 @@ namespace LaboratorioPrimeUI
 
         private void btnAcao_Click(object sender, EventArgs e)
         {
+            Usuario use = new Usuario();
             if (alterar == false && ValidarCampos())
-                Gravar();
+                Gravar();                 
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+          
+            
         }
     }
 }

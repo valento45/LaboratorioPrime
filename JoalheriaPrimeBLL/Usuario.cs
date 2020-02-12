@@ -22,7 +22,8 @@ namespace JoalheriaPrimeBLL
         public string CPF { get; set; }
         public string Modulos { get; set; }
         public string Observacoes { get; set; }
-        public char userPermissao { get; set; }
+        public string userPermissao { get; set; }
+
         public bool Ativo { get; set; }
 
         public Usuario(DataRow usuario)
@@ -35,7 +36,7 @@ namespace JoalheriaPrimeBLL
             Observacoes = usuario["user_obs"].ToString();
             Modulos = usuario["user_modulos"].ToString();
             CPF = usuario["user_cpf"].ToString();
-            userPermissao = char.Parse(usuario["user_permissao"].ToString());
+            userPermissao = usuario["user_permissao"].ToString();
             bool ativo;
             Ativo = bool.TryParse(usuario["user_atv"].ToString(), out ativo) ? ativo : false;
 
@@ -188,7 +189,6 @@ namespace JoalheriaPrimeBLL
                 query = @"UPDATE prime.usuario_tb SET login = @login, senha = @senha, nome = @nome, funcao = @funcao, documento = @documento, cpf = @cpf, modulos = @modulos, observacao = @observacao, permissao = @permissao, user_atv=@user_atv WHERE id_usuario = @id_usuario; ";
                 lCmd.Parameters.AddWithValue("id_usuario", UserID);
 
-
             }
             else
             {
@@ -293,7 +293,22 @@ namespace JoalheriaPrimeBLL
 
         public void Insert_User(Usuario usuario)
         {
+            string query = "INSERT INTO prime.usuario_tb (login, senha, nome, funcao, documento, cpf, modulos, observacao, permissao, user_atv) values (@login, @senha, @nome, @funcao, @documento, @cpf, @modulos, @observacao, @permissao, @user_atv)";
+            SqlCommand cmd = new SqlCommand(query);
 
+            cmd.Parameters.AddWithValue(@"login", Login);
+            cmd.Parameters.AddWithValue(@"senha", Senha);
+            cmd.Parameters.AddWithValue(@"nome", Nome);
+            cmd.Parameters.AddWithValue(@"funcao", Funcao);
+            cmd.Parameters.AddWithValue(@"documento", Documento);
+            cmd.Parameters.AddWithValue(@"cpf", CPF);
+            cmd.Parameters.AddWithValue(@"modulos", Modulos);
+            cmd.Parameters.AddWithValue(@"observacao", Observacoes);
+            cmd.Parameters.AddWithValue(@"permissao", userPermissao);
+            cmd.Parameters.AddWithValue(@"user_atv", Ativo);
+
+            Acces.ExecuteNonQuery(cmd);
+            
         }
     }
 }
